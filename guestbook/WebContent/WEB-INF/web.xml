@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	<description>guestbook desc</description>
+	<servlet>
+		<servlet-name>WriteProc</servlet-name>
+		<servlet-class>guestbook.WriteProc</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListProc</servlet-name>
+		<servlet-class>guestbook.ListProc</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WriteProc</servlet-name>
+		<url-pattern>/WriteProc</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListProc</servlet-name>
+		<url-pattern>/List</url-pattern>
+	</servlet-mapping>
+</web-app>
+
