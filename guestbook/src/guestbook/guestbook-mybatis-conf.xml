@@ -8,7 +8,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="cubrid.jdbc.driver.CUBRIDDriver"/>
-        <property name="url" value="jdbc:cubrid:localhost:30000:guestbook:::"/>
+        <property name="url" value="jdbc:cubrid:localhost:30000:guestbook:::?charset=UTF-8"/>
         <property name="username" value="dba"/>
         <property name="password" value=""/>
       </dataSource>

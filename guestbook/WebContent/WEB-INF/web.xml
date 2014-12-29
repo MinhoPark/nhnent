@@ -5,17 +5,50 @@
 		<servlet-name>WriteProc</servlet-name>
 		<servlet-class>guestbook.WriteProc</servlet-class>
 	</servlet>
+	
 	<servlet>
 		<servlet-name>ListProc</servlet-name>
 		<servlet-class>guestbook.ListProc</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>CheckProc</servlet-name>
+		<servlet-class>guestbook.CheckProc</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>DeleteProc</servlet-name>
+		<servlet-class>guestbook.DeleteProc</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ModifyProc</servlet-name>
+		<servlet-class>guestbook.ModifyProc</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>WriteProc</servlet-name>
 		<url-pattern>/WriteProc</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>ListProc</servlet-name>
 		<url-pattern>/List</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CheckProc</servlet-name>
+		<url-pattern>/Check</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteProc</servlet-name>
+		<url-pattern>/Delete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ModifyProc</servlet-name>
+		<url-pattern>/Modify</url-pattern>
 	</servlet-mapping>
 </web-app>
 

@@ -1,6 +1,7 @@
 package guestbook;
 
 public class GuestArticle {
+	private String id;
 	private String email;
 	private String password;
 	private String article;
@@ -9,6 +10,14 @@ public class GuestArticle {
 	
 	public GuestArticle(){
 		
+	}
+	
+	public String getId(){
+		return id;
+	}
+	
+	public void setId(String _id){
+		id = _id;
 	}
 	
 	public String getEmail(){

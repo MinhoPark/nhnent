@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ListProc extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException
 	{
-		//req.setCharacterEncoding("UTF-8");
-		
 		GuestDAO dao = new GuestDAO();
 		resp.setContentType("text/html; charset=UTF-8");
 		List<GuestArticle> articleList = dao.select("printlist");

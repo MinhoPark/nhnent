@@ -5,6 +5,7 @@
   
 <mapper namespace = "GuesbookMappers">
 	<resultMap type = "guestbook.GuestArticle" id = "GuestArticleMap">
+		<result property = "id" column = "id"/>
 		<result property = "firstDate" column = "firstdate"/>
 		<result property = "email" column = "email"/>
 		<result property = "article" column = "article"/>
@@ -16,5 +17,16 @@
 	</insert>
 	
 	<select id ="printlist" resultMap="GuestArticleMap">
-		select * from guestbook_list order by [no] desc </select>
+		select * from guestbook_list order by id desc </select>
+	
+	<select id ="selectOneArticle" parameterType="string" resultType="guestbook.GuestArticle">
+		select * from guestbook_list where id = #{id} </select>
+	
+	<update id="modify" parameterType="guestbook.GuestArticle">
+		update guestbook_list set article = #{article}, lastmodifydate = #{lastModifyDate} where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		delete from guestbook_list where id = #{id}
+	</delete>
 </mapper>

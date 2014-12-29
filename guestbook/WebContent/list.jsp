@@ -11,7 +11,9 @@
 </head>
 <body>
 <center>
-<h1>방명록</h1><br><br>
+<h1>방명록</h1><br>
+<a href = "write.jsp">[새 글쓰기]</a><br>
+<hr><br>
 <table border = "1">
 <%
 	List<GuestArticle> lists = (List<GuestArticle>)request.getAttribute("lists");
@@ -34,6 +36,12 @@
 	<tr>
 		<td>내용</td>
 		<td><%=article.getArticle() %></td>
+	</tr>
+	<tr>
+		<td>옵션</td>
+		<td><a href = "check.jsp?opr=modify&id=<%=article.getId() %>">[수정]</a>&nbsp;&nbsp;
+			<a href = "check.jsp?opr=delete&id=<%=article.getId() %>">[삭제]</a>
+		</td>
 	</tr>
 <%
 	--size;

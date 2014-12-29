@@ -50,4 +50,11 @@ public class GuestDAO {
 		selectResult = sqlsession.selectList(id);
 		return selectResult;
 	}
+	
+	public GuestArticle selectOne(String id, Object arg1)
+	{
+		GuestArticle ga;
+		ga = sqlsession.selectOne("selectOneArticle", arg1);
+		return ga;
+	}
 }
