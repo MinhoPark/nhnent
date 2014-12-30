@@ -14,7 +14,7 @@
 <h1>방명록</h1><br>
 <a href = "write.jsp">[새 글쓰기]</a><br>
 <hr><br>
-<table border = "1">
+<table border = "1" width = "50%">
 <%
 	List<GuestArticle> lists = (List<GuestArticle>)request.getAttribute("lists");
 	int size = lists.size();

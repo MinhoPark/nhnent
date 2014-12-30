@@ -1,10 +1,13 @@
 package guestbook;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -19,10 +22,26 @@ public class WriteProc extends HttpServlet {
 		throws ServletException, IOException{
 		
 		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
 		
 		GuestArticle article = new GuestArticle();
 				
 		article.setEmail(req.getParameter("email"));
+		
+		// 이메일 검사
+		
+		boolean isEmailMatch = Pattern.matches("^([\\.A-Za-z0-9_-]+)@([A-Za-z0-9\\-]+)(\\.[A-Za-z0-9]+){1,2}$", article.getEmail());
+		
+		if(!isEmailMatch){
+			PrintWriter out = resp.getWriter();
+			
+			out.println("<script language = \"javascript\">");
+			out.println("alert(\"Server : 이메일 주소 형식이 맞지 않습니다.\");");
+			out.println("history.back();");
+			out.println("</script>");
+			return;
+		}
+		
 		// password 해쉬 저장
 		
 		try {

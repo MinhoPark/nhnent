@@ -23,7 +23,7 @@
 		select * from guestbook_list where id = #{id} </select>
 	
 	<update id="modify" parameterType="guestbook.GuestArticle">
-		update guestbook_list set article = #{article}, lastmodifydate = #{lastModifyDate} where id = #{id}
+		update guestbook_list set email = #{email}, article = #{article}, lastmodifydate = #{lastModifyDate} where id = #{id}
 	</update>
 	
 	<delete id="delete" parameterType="string">

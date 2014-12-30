@@ -5,6 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language = "javascript">
+	function gotoList(){
+		location.href = "List";
+	}
+</script>
 <title>Check Password</title>
 </head>
 <body>
@@ -22,7 +27,7 @@
 
 <input name = "password" type="password">
 <input type = "submit" value = "<%=mode%>">&nbsp;&nbsp;
-<input type = "button" value = "뒤로" onClick="javascript:history.back()">
+<input type = "button" value = "뒤로" onClick="javascript:gotoList()">
 <input type = "hidden" name = "opr" value = "<%=request.getParameter("opr")%>">
 <input type = "hidden" name = "id" value= "<%=request.getParameter("id") %>">
 </form>

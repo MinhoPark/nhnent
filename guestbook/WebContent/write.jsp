@@ -26,9 +26,19 @@ function checkBlank(){
 	}
 	
 	// email 유효성 검사 (regex)
-	var regexEmail = /^([A-Za-z0-9\._-]+)@([A-Za-z0-9\-]+)(\.[A-Za-z0-9]+){1,2}$/;
+	// [영문,숫자,'.','_','-']@도메인형식(.com이나 .co.kr처럼 점이 1개 또는 2개만 허용)
+	var regexEmail = /^([A-Za-z0-9\._-]+)@([A-Za-z0-9-]+)(\.[A-Za-z0-9]+){1,2}$/;
+	
+	if(!regexEmail.test(form.email.value)){
+		alert("이메일 주소 형식이 맞지 않습니다.");
+		return;
+	}
 	
 	form.submit();
+}
+
+function gotoList(){
+	location.href = "List";
 }
 </script>
 
@@ -54,7 +64,7 @@ function checkBlank(){
 </table>
 <hr><br>
 <input type = "button" value = "글 쓰기" onClick = "javascript:checkBlank()"><input type = "reset" value = "지우기">
-<input type = "button" value = "취소" onClick = "javascript:history.back()">
+<input type = "button" value = "취소" onClick = "javascript:gotoList()">
 </form>
 </center>
 </body>
