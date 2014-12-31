@@ -17,13 +17,20 @@
 <table border = "1" width = "50%">
 <%
 	List<GuestArticle> lists = (List<GuestArticle>)request.getAttribute("lists");
-	int size = lists.size();
+	int articleNo = Integer.parseInt((String)request.getAttribute("totalArticles"));
+	int totalPageCount = Integer.parseInt((String)request.getAttribute("totalPageCount"));
+	int reqPage = Integer.parseInt((String)request.getAttribute("reqPage"));
+	int idx;
+	
+	final int ARTICLES_PER_PAGE = Integer.parseInt((String)request.getAttribute("articlesPerPage"));
+	
+	articleNo = articleNo - ARTICLES_PER_PAGE * (reqPage-1);
 	
 	for(GuestArticle article : lists){
 %>
 	<tr>
 		<td>글 번호</td>
-		<td><%=size %></td>
+		<td><%=articleNo %></td>
 	</tr>
 	<tr>
 		<td>글 쓴 날짜</td>
@@ -44,10 +51,25 @@
 		</td>
 	</tr>
 <%
-	--size;
+	--articleNo;
 	}
 %>
 </table>
+<br>
+<%
+	// paging 처리
+	
+	for(idx = 1; idx <= totalPageCount; ++idx){
+		if(idx != reqPage){
+%>
+	[<a href = "List?page=<%=idx %>"><%=idx %></a>]
+<% 
+		}else{
+%>		[<%=idx %>]
+<%
+		}
+	}
+%>
 </center>
 </body>
 </html>

@@ -16,8 +16,12 @@
 		values(#{email}, #{password}, #{article}, #{firstDate})
 	</insert>
 	
-	<select id ="printlist" resultMap="GuestArticleMap">
-		select * from guestbook_list order by id desc </select>
+	<select id ="printlist" parameterType="int" resultMap="GuestArticleMap">
+		select * from guestbook_list order by id desc limit #{offset}, 10 </select>
+	
+	<select id ="getArticleCount" resultType="string">
+		select count(*) from guestbook_list
+	</select>
 	
 	<select id ="selectOneArticle" parameterType="string" resultType="guestbook.GuestArticle">
 		select * from guestbook_list where id = #{id} </select>

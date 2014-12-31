@@ -44,11 +44,16 @@ public class GuestDAO {
 		return ret;
 	}
 	
-	public List<GuestArticle> select(String id)
+	public List<GuestArticle> select(String id, int offset)
 	{
 		List<GuestArticle> selectResult = new ArrayList<GuestArticle>();
-		selectResult = sqlsession.selectList(id);
+		selectResult = sqlsession.selectList(id, offset);
 		return selectResult;
+	}
+	
+	public String getArticleCount(){
+		String count = sqlsession.selectOne("getArticleCount");
+		return count;
 	}
 	
 	public GuestArticle selectOne(String id, Object arg1)
